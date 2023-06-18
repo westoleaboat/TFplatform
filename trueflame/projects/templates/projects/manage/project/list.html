@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}My projects{% endblock %}
+
+{% block content %}
+  <h1>My projects</h1>
+  
+  <div class="module">
+    {% for project in object_list %}
+      <div class="course-info">
+        <h3>{{ project.title }}</h3>
+        <p>
+          <a href="{% url "project_edit" project.id %}">Edit</a>
+          <a href="{% url "project_delete" project.id %}">Delete</a>
+          <a href="{% url "project_module_update" project.id %}">Edit contents</a>
+          
+          {% if project.contents.count > 0 %}
+            <a href="{% url "module_content_list" project.contents.first.id %}">Manage Contents</a>
+          {% endif %}
+        </p>
+      </div>
+    {% empty %}
+      <p>You haven't created any projects yet.</p>
+    {% endfor %}
+    <p>
+      <a href="{% url "project_create" %}" class="button">Create new 
+  project</a>
+    </p>
+  </div>
+{% endblock %}

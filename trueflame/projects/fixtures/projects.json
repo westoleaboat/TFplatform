@@ -1,0 +1,181 @@
+[
+{
+  "model": "projects.project",
+  "pk": 1,
+  "fields": {
+    "title": "hand made jewelry shop",
+    "dev_roles": "web design",
+    "lang_pref": "vanilla js",
+    "slug": "la-magia-de-las-hadas"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 2,
+  "fields": {
+    "title": "car dealership site",
+    "dev_roles": "web design",
+    "lang_pref": "vanilla js",
+    "slug": "car-dealership-site"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 3,
+  "fields": {
+    "title": "sport news agency",
+    "dev_roles": "static site",
+    "lang_pref": "vanilla js",
+    "slug": "spot-news-agency"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 4,
+  "fields": {
+    "title": "PC components site",
+    "dev_roles": "web design",
+    "lang_pref": "vanilla js",
+    "slug": "pc-components-site"
+  }
+},
+{
+  "model": "projects.structure",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "project": 1,
+    "title": "la magia de las hadas",
+    "content_organization": "categories , tags or custom taxonomies to create logical structure",
+    "page_hierarchy": "how pages are organized for easy navigation and logical relationships between pages",
+    "url_structure": "clean and user-friendly URL structurethat reflects the site's hierarchy and content organization",
+    "branding": "define visual identity of the site, including logo, color scheme, typograhpy, and overall branding guidelines",
+    "layout": "Determine the layout of the site, including placement of headers, footers, sidebars, and content sections",
+    "responsive_design": "ensure design is responsive and adapts to different screen sizes and devices",
+    "visual_elements": "specify use of images, icons, and other visual elements to enhance overall design",
+    "navigation": "define clear and intuitive navigation structure that allow users to easily find information and navigate between pages",
+    "user_flows": "accordingly to streamline content creation and management",
+    "form_design": "create user-friendly forms for data input, consider validation, error handling and user feedback",
+    "accessibility": "make it usable for people with disabilities",
+    "user_authentication": "implement secure authentication system to control access",
+    "user_roles_permissions": "define user roles (admin, editor, contributor)",
+    "input_validation": "validation to prevent common security vulneravilities",
+    "attack_protection": "CSRF",
+    "regular_updates": "stay updated",
+    "slug": "la-magia-de-las-hadas",
+    "overview": "jewelry site, e-comerce like",
+    "created": "2023-06-13T20:20:00.054Z"
+  }
+},
+{
+  "model": "projects.structure",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "project": 2,
+    "title": "cheapcar.com",
+    "content_organization": "categories , tags or custom taxonomies to create logical structure",
+    "page_hierarchy": "how pages are organized for easy navigation and logical relationships between pages",
+    "url_structure": "clean and user-friendly URL structurethat reflects the site's hierarchy and content organization",
+    "branding": "define visual identity of the site, including logo, color scheme, typograhpy, and overall branding guidelines",
+    "layout": "Determine the layout of the site, including placement of headers, footers, sidebars, and content sections",
+    "responsive_design": "ensure design is responsive and adapts to different screen sizes and devices",
+    "visual_elements": "specify use of images, icons, and other visual elements to enhance overall design",
+    "navigation": "define clear and intuitive navigation structure that allow users to easily find information and navigate between pages",
+    "user_flows": "accordingly to streamline content creation and management",
+    "form_design": "create user-friendly forms for data input, consider validation, error handling and user feedback",
+    "accessibility": "make it usable for people with disabilities",
+    "user_authentication": "implement secure authentication system to control access",
+    "user_roles_permissions": "define user roles (admin, editor, contributor)",
+    "input_validation": "validation to prevent common security vulneravilities",
+    "attack_protection": "CSRF",
+    "regular_updates": "stay updated",
+    "slug": "car-dealership-site",
+    "overview": "new request, our second customer. car dealership",
+    "created": "2023-06-14T05:46:32.886Z"
+  }
+},
+{
+  "model": "projects.structure",
+  "pk": 3,
+  "fields": {
+    "owner": 1,
+    "project": 3,
+    "title": "nba4news",
+    "content_organization": "categories , tags or custom taxonomies to create logical structure",
+    "page_hierarchy": "how pages are organized for easy navigation and logical relationships between pages",
+    "url_structure": "clean and user-friendly URL structurethat reflects the site's hierarchy and content organization",
+    "branding": "define visual identity of the site, including logo, color scheme, typograhpy, and overall branding guidelines",
+    "layout": "Determine the layout of the site, including placement of headers, footers, sidebars, and content sections",
+    "responsive_design": "ensure design is responsive and adapts to different screen sizes and devices",
+    "visual_elements": "specify use of images, icons, and other visual elements to enhance overall design",
+    "navigation": "define clear and intuitive navigation structure that allow users to easily find information and navigate between pages",
+    "user_flows": "accordingly to streamline content creation and management",
+    "form_design": "create user-friendly forms for data input, consider validation, error handling and user feedback",
+    "accessibility": "make it usable for people with disabilities",
+    "user_authentication": "implement secure authentication system to control access",
+    "user_roles_permissions": "define user roles (admin, editor, contributor)",
+    "input_validation": "validation to prevent common security vulneravilities",
+    "attack_protection": "CSRF",
+    "regular_updates": "stay updated",
+    "slug": "nba4news",
+    "overview": "this is a sport news site, need to obtain news from famous site API's",
+    "created": "2023-06-14T05:51:03.765Z"
+  }
+},
+{
+  "model": "projects.structure",
+  "pk": 4,
+  "fields": {
+    "owner": 1,
+    "project": 4,
+    "title": "PCcomponents.com",
+    "content_organization": "categories , tags or custom taxonomies to create logical structure",
+    "page_hierarchy": "how pages are organized for easy navigation and logical relationships between pages",
+    "url_structure": "clean and user-friendly URL structurethat reflects the site's hierarchy and content organization",
+    "branding": "define visual identity of the site, including logo, color scheme, typograhpy, and overall branding guidelines",
+    "layout": "Determine the layout of the site, including placement of headers, footers, sidebars, and content sections",
+    "responsive_design": "ensure design is responsive and adapts to different screen sizes and devices",
+    "visual_elements": "specify use of images, icons, and other visual elements to enhance overall design",
+    "navigation": "define clear and intuitive navigation structure that allow users to easily find information and navigate between pages",
+    "user_flows": "accordingly to streamline content creation and management",
+    "form_design": "create user-friendly forms for data input, consider validation, error handling and user feedback",
+    "accessibility": "make it usable for people with disabilities",
+    "user_authentication": "implement secure authentication system to control access",
+    "user_roles_permissions": "define user roles (admin, editor, contributor)",
+    "input_validation": "validation to prevent common security vulneravilities",
+    "attack_protection": "CSRF",
+    "regular_updates": "stay updated",
+    "slug": "pccomponentscom",
+    "overview": "This site sells cheap second-hand component part",
+    "created": "2023-06-14T05:59:10.492Z"
+  }
+},
+{
+  "model": "projects.content",
+  "pk": 1,
+  "fields": {
+    "structure": 1,
+    "title": "header",
+    "description": "big photo"
+  }
+},
+{
+  "model": "projects.content",
+  "pk": 2,
+  "fields": {
+    "structure": 1,
+    "title": "items",
+    "description": "grid"
+  }
+},
+{
+  "model": "projects.content",
+  "pk": 3,
+  "fields": {
+    "structure": 1,
+    "title": "buy form",
+    "description": "select and send email"
+  }
+}
+]
