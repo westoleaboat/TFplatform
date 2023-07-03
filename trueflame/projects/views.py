@@ -21,6 +21,14 @@ from django.forms.models import modelform_factory
 from django.apps import apps
 from .models import Content, Structure, DiverseContent
 
+# braces for reordeing modules
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
+
+# displaying Projects
+from django.db.models import Count
+from .models import Project
+from django.views.generic.detail import DetailView
+
 # Your OwnerMixin class can be used for views that interact
 # with any other model that contains an owner attribute
 
@@ -32,7 +40,7 @@ class OwnerMixin(object):
 
 
 class OwnerEditMixin(object):
-    def from_valid(self, form):
+    def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
@@ -50,7 +58,7 @@ class OwnerProjectMixin(OwnerMixin, LoginRequiredMixin, PermissionRequiredMixin)
     model = Structure
     # the fields of the model to build the model form of the CreateView and UpdateView views
     # fields = ["project", "title", "slug", "overview"]
-    fields = ["title", "project", "owner", "overview", "slug"]
+    fields = ["title", "project", "owner", "overview", "slug", "page_hierarchy", "branding", "layout", "visual_elements", "navigation", "input_validation"]
     # Used by CreateView, UpdateView, and DeleteView to redirect the used after the form is successfully submitted or the object is deleted.
     success_url = reverse_lazy("manage_project_list")
 
@@ -98,6 +106,8 @@ class ProjectUpdateView(OwnerProjectEditMixin, UpdateView):
 class ProjectDeleteView(OwnerProjectMixin, DeleteView):
     template_name = "projects/manage/project/delete.html"
     permission_required = "projects.delete_project"
+
+
 
 
 class ProjectModuleUpdateView(TemplateResponseMixin, View):
@@ -185,3 +195,36 @@ class ContentContentsListView(TemplateResponseMixin, View):
     def get(self, request, content_id):
         content = get_object_or_404(Content, id=content_id, structure__owner=request.user)
         return self.render_to_response({'content': content})
+
+class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Content.objects.filter(id=id, structure__owner=request.user).update(order=order)
+        return self.render_json_response({'saved': 'OK'})
+
+class ContentsOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Contents.objects.filter(id=id, content__structure__owner=request.user).update(order=order)
+        return self.render_json_response({'saved': 'OK'})
+
+class StructureListView(TemplateResponseMixin, View):
+    model = Structure
+    template_name = 'projects/project/list.html'
+
+    def get(self, request, project=None):
+        projects = Project.objects.annotate(
+            total_structures=Count('structures'))
+        structures = Structure.objects.annotate(
+            total_contents=Count('contents'))
+        
+        if project:
+            project = get_object_or_404(Project, slug=project)
+            structures = structures.filter(project=project)
+        return self.render_to_response({'projects': projects,
+                                        'project': project, 
+                                        'structures': structures})  
+
+class StructureDetailView(DetailView):
+    model = Structure
+    template_name = 'projects/project/detail.html'

@@ -1,30 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}My projects{% endblock %}
+{% block title %}My structures{% endblock %}
 
 {% block content %}
-  <h1>My projects</h1>
+  <h1>My structures</h1>
   
   <div class="module">
     {% for project in object_list %}
+
       <div class="course-info">
         <h3>{{ project.title }}</h3>
         <p>
           <a href="{% url "project_edit" project.id %}">Edit</a>
           <a href="{% url "project_delete" project.id %}">Delete</a>
-          <a href="{% url "project_module_update" project.id %}">Edit contents</a>
+          <a href="{% url "project_module_update" project.id %}">Edit content</a>
           
           {% if project.contents.count > 0 %}
             <a href="{% url "module_content_list" project.contents.first.id %}">Manage Contents</a>
           {% endif %}
         </p>
       </div>
+
     {% empty %}
-      <p>You haven't created any projects yet.</p>
+      <p>You haven't created any structures yet.</p>
     {% endfor %}
     <p>
-      <a href="{% url "project_create" %}" class="button">Create new 
-  project</a>
+      <a href="{% url "project_create" %}" class="button">Create new structure</a>
     </p>
   </div>
 {% endblock %}

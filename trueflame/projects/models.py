@@ -34,7 +34,7 @@ class Structure(models.Model):
     project = models.ForeignKey(
         Project, related_name="structures", on_delete=models.CASCADE
     )
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,help_text='this is text')
 
     # Content organization
     content_organization = models.CharField(max_length=200)

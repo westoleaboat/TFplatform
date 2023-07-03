@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block content %}
+    {% with project=object.project %}
+        <h1>
+            {{ object.title }}
+        </h1>
+        <div class="module">
+            <h2>Overview</h2>
+            <p>
+                <a href="{% url "structure_list_project" project.slug %}">
+                {{ project.title }}</a>.
+                {{ object.contentes.count }} contents.
+                Instructor: {{ object.owner.get_full_name }}
+            </p>
+            {{ object.overview|linebreaks }}
+        </div>
+    {% endwith %}
+{% endblock %}

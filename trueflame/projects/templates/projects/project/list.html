@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if project %}
+        {{ project.title }} projects
+    {% else %}
+ All structures
+ {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if project %}
+            {{ project.title }} projects
+        {% else %}
+            All projects
+        {% endif %}
+    </h1>
+    <div class="contents">
+        <h3>Projects</h3>
+        <ul id="modules">
+            <li {% if not project %}class="selected"{% endif %}>
+                <a href="{% url "structure_list" %}">All</a>
+            </li>
+            {% for p in projects %}
+                <li {% if project == p %}class="selected"{% endif %}>
+                    <a href="{% url "structure_list_project" p.slug %}">
+                        {{ p.title }}
+                        <br><span>{{ p.total_structures }} structures</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="module">
+        {% for structure in structures %}
+            {% with project=structure.project %}
+                <h3>
+                    <a href="{% url "structure_detail" structure.slug %}">
+                        {{ structure.title }}
+                    </a>
+                </h3>
+                <p>
+                    <a href="{% url "structure_list_project" project.slug %}">{{ project }}</a>.
+                        {{ structure.total_contents }} contents.
+                        Instructor: {{ structure.owner.get_full_name }}
+                </p>
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endblock %}
